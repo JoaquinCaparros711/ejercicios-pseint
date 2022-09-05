@@ -1,0 +1,181 @@
+Algoritmo sin_titulo
+//////	Una matriz mágica es una matriz cuadrada (tiene igual número de filas que de columnas) que
+//////	tiene como propiedad especial que la suma de las filas, las columnas y las diagonales es igual.
+//////Por ejemplo:
+//////	2 7 6
+//////	9 5 1
+//////	4 3 8
+//////	En la matriz de ejemplo las sumas son siempre 15. Considere el problema de construir un
+//////	algoritmo que compruebe si una matriz de datos enteros es mágica o no, y en caso de que
+//////			sea mágica escribir la suma. Además, el programa deberá comprobar que los números
+//////			introducidos son correctos, es decir, están entre el 1 y el 9. El usuario ingresa el tamaño de la
+	//////			matriz que no debe superar orden igual a 10
+	
+	
+	/// 1 PEDIR EL ORDEN DE LA MATRIZ
+	Definir resp , n , matriz Como Entero
+	
+	Escribir "Seleccion el orden de la matriz:"
+	Escribir "1- 2x2"
+	Escribir "2- 3x3"
+	leer resp
+	segun resp hacer
+		1:
+			n=2
+			Dimension matriz(n,n)
+			llenar(matriz,n)
+			analizar(matriz,n)
+		2:
+			n=3
+			Dimension matriz(n,n)
+			llenar2(matriz,n,n)
+			analizar2(matriz,n,n)
+	FinSegun
+	
+
+	/// 3 ANALIZAR LA MATRIZ
+FinAlgoritmo
+
+SubProceso llenar(matriz,n)
+	// 2 LLENAR LA MATRIZ
+	Definir i,j ,num como entero
+	para i=0 hasta n-1 con paso 1 Hacer
+		para j=0 hasta n-1 con paso 1 Hacer
+			Escribir "Ingrese los números de la matriz:"
+			leer num
+			Mientras num <1 o num >9 Hacer
+				Escribir "El número debe ser entre 1 y 9"
+				Escribir "Ingrese nuevamente:"
+				leer num
+			Fin Mientras
+			matriz(i,j)=num
+		FinPara
+	finpara
+	para i=0 hasta n-1 con paso 1 Hacer
+		para j=0 hasta n-1 con paso 1 Hacer
+			Escribir Sin Saltar matriz(i,j) " "
+		FinPara
+		Escribir ""
+	FinPara
+	
+FinSubProceso
+SubProceso  analizar(matriz,n)
+	definir i,j,sumai0,sumai1,sumaj0,sumaj1,sumaD1 , sumaD2 Como Entero
+	sumai0= 0
+	sumai1 =0
+	sumaj0 = 0 
+	sumaj1 = 0
+	sumaD1=0
+	sumaD2=0
+	para i=0 hasta n-1 con paso 1 Hacer
+		
+		para j=0 hasta n-1 con paso 1 Hacer
+			si i=0 Entonces
+				sumai0 = sumai0 + matriz(i,j)
+			FinSi
+			si i =1 Entonces
+				sumai1 = sumai1 + matriz(i,j)
+			FinSi
+			si j =0 Entonces
+				sumaj0 = sumaj0 + matriz(i,j)
+			FinSi
+			si j =1 Entonces
+				sumaj1 = sumaj1 + matriz(i,j)
+			FinSi
+			si i=j Entonces
+				sumaD1 = sumaD1 + matriz(i,j)
+			FinSi
+			si i+j = n-1 Entonces
+				
+			sumaD2 = sumaD2 + matriz(i,j)
+			FinSi
+		FinPara
+	fin para	
+	
+		
+	
+	SI sumai0=sumai1 y sumai0=sumaj0 y sumai0=sumaj1 y sumai0=sumaD1 y sumai0=sumaD2 Entonces
+		Escribir "LA MATRIZ ES MAGICA!!"
+	SiNo
+		Escribir "LA MATRIZ NO ES MAGICA."
+	FinSi
+FinSubProceso
+SubProceso  llenar2(matriz,n,n)
+	Definir i,j ,num como entero
+	Escribir "Ingrese los números de la matriz:"
+	para i=0 hasta n-1 con paso 1 Hacer
+		para j=0 hasta n-1 con paso 1 Hacer
+			
+			leer num
+			Mientras num <1 o num >9 Hacer
+				Escribir "El número debe ser entre 1 y 9"
+				Escribir "Ingrese nuevamente:"
+				leer num
+			Fin Mientras
+			matriz(i,j)=num
+		FinPara
+	finpara
+	para i=0 hasta n-1 con paso 1 Hacer
+		para j=0 hasta n-1 con paso 1 Hacer
+			Escribir Sin Saltar matriz(i,j) " "
+		FinPara
+		Escribir ""
+	FinPara
+	
+FinSubProceso
+SubProceso  analizar2(matriz,n,n)
+	definir i,j,sumai0,sumai1,sumaj0,sumaj1,sumaD1 , sumaD2,sumai2,sumaj2 Como Entero
+	sumai0= 0
+	sumai1 =0
+	sumaj0 = 0 
+	sumaj1 = 0
+	sumaD1=0
+	sumaD2=0
+	sumai2 = 0
+	sumaj2=0
+	para i=0 hasta n-1 con paso 1 Hacer
+		
+		para j=0 hasta n-1 con paso 1 Hacer
+			si i=0 Entonces
+				sumai0 = sumai0 + matriz(i,j)
+			FinSi
+			si i =1 Entonces
+				sumai1 = sumai1 + matriz(i,j)
+			FinSi
+			si i =2 Entonces
+				sumai2 = sumai2 + matriz(i,j)
+			FinSi
+			si j =0 Entonces
+				sumaj0 = sumaj0 + matriz(i,j)
+			FinSi
+			si j =1 Entonces
+				sumaj1 = sumaj1 + matriz(i,j)
+			FinSi
+			si j=2 Entonces
+				sumaj2 = sumaj2 + matriz(i,j)
+			FinSi
+			si i=j Entonces
+				sumaD1 = sumaD1 + matriz(i,j)
+			FinSi
+			si i+j = n-1 Entonces
+				
+				sumaD2 = sumaD2 + matriz(i,j)
+			FinSi
+		FinPara
+	fin para	
+	
+	
+	
+	SI sumai0=sumai1 y sumai0=sumaj0 y sumai0=sumaj1 y sumai0=sumaD1 y sumai0=sumaD2 y sumai0=sumai2 y sumai0=sumaj2 Entonces
+		Escribir "LA MATRIZ ES MAGICA!!"
+	SiNo
+		Escribir "LA MATRIZ NO ES MAGICA."
+	FinSi
+FinSubProceso
+
+
+
+
+
+
+

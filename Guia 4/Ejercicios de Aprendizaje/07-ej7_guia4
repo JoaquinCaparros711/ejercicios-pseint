@@ -1,0 +1,42 @@
+
+//Crear un subproceso que rellene dos arreglos de tamaño n, con números aleatorios. Después,
+//	hacer una función que reciba los dos arreglos y diga si todos sus valores son iguales o no. La
+//	función debe devolver el resultado de está validación, para mostrar el mensaje en el algoritmo.
+//	Nota: recordar el uso de las variables de tipo lógico
+
+Algoritmo ejercicio7_guia4
+	Definir n, vecA, VecB,i Como Entero
+	Escribir "Ingrese el tamaño deseado del vector "
+	Leer n
+	
+	Dimension vecA(n), vecB(n)
+	rellenar_vector(vecA, vecB, n)
+	Escribir "son iguales? ", retVectores(vecA, vecB, n )
+	Para i=0 hasta n-1 Hacer
+		Mostrar vecA(i) , vecB(i)
+	FinPara
+	
+FinAlgoritmo
+
+SubProceso rellenar_vector(vecA, vecB, n)
+	Definir i Como Entero
+	Para i <- 0 Hasta n-1 Hacer //la i le da la posicion al vector//
+		vecA(i)= Aleatorio(0,1) //rellenar al vector//
+		vecB(i)=Aleatorio(0,1)
+	Fin Para
+FinSubProceso
+//siempre se usa funcion PARA, para recorrer el vector//
+Funcion retorno <- retVectores(vecA, vecB, n )
+ 	Definir retorno Como Logico
+	Definir i Como Entero
+	
+	Para i=0 Hasta n-1 Hacer
+		si vecA(i)= vecB(i) entonces
+			retorno=Verdadero
+		SiNo
+			retorno=Falso
+			i=n-1 //condicion de finalizacion del bucle//
+		FinSi
+	FinPara
+	
+Fin Funcion

@@ -1,0 +1,33 @@
+//Rellenar en un subproceso una matriz cuadrada con números aleatorios salvo en la diagonal
+//principal, la cual debe rellenarse con ceros. Una vez llena la matriz debe generar otro
+//subproceso para imprimir la matriz.
+
+Algoritmo ej11_guia4
+	Definir num, matriz Como Entero
+	Escribir "Ingrese un numero" 
+	Leer num 
+	dimension matriz(num,num)
+	rellenar(matriz,num)
+	
+FinAlgoritmo
+
+
+SubProceso rellenar(Matriz, num)
+	definir i, j Como Entero
+	para i=0 hasta num-1 Hacer
+		para j=0 hasta num-1 Hacer
+			matriz(i,j)=Aleatorio(0,9)
+			si i=j entonces 
+				matriz(i,j)=0
+			FinSi
+		FinPara
+	FinPara
+	
+	para i=0 hasta num-1 Hacer
+		para j=0 hasta num-1 Hacer
+			Mostrar sin saltar matriz(i,j) " " 
+		FinPara
+		Escribir " " 
+	FinPara
+FinSubProceso
+
